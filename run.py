@@ -13,10 +13,7 @@ def site_login():
 	driver.find_element_by_id('logIn_btn').click()
 	driver.find_element_by_id('client_image').click()
 	clients = driver.find_elements_by_class_name('client_Tag')
-	L = []
-	for c in clients:
-		L.append(transform(c))
-	return L
+	return [transform(client) for client in clients]
 
 def transform(e):
 	sub = e.find_elements_by_css_selector('*')
